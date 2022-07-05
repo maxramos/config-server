@@ -2,22 +2,23 @@
 server:
   port: 8888
 
-# Register self as a client to Eureka server.
+# Register self as a client to discovery server.
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
 
-# Must match the name of the configuration files stored in the config server. Includes profile specific configuration files.
+# Must match the name of the configuration files stored in the config server (this includes profile specific configuration files).
 spring:
   application:
     name: config-server
 
-# Set 'default-label' to 'master' to prevent error logs showing since the expected label for git is 'main'.
-# The 'uri' must include an additional '/' if running in Windows.
+# Set 'default-label' to 'master' to prevent error logs showing since the expected default label for github is 'main'.
+# When using 'file:' in 'uri' the path must include an additional '/' if running in Windows.
   cloud:
     config:
       server:
         git:
           default-label: master
-          uri: file:///${user.home}/config-repo
+          uri: https://github.com/maxramos/config-repo
+#          uri: file:///${user.home}/config-repo
