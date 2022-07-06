@@ -1,19 +1,19 @@
-# Conventional port for config server is '8888'.
+# Conventional port for config-server is '8888'.
 server:
   port: 8888
 
-# Register self as a client to discovery server.
+# Register self as a client to service-registry.
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
 
-# Must match the name of the configuration files stored in the config server (this includes profile specific configuration files).
+# Must match the name of the configuration files managed by config-server (this includes profile specific configuration files).
 spring:
   application:
     name: config-server
 
-# Set 'default-label' to 'master' to prevent error logs showing since the expected default label for github is 'main'.
+# Set 'default-label' to 'master' to prevent error logs from showing since the expected default label for github is 'main'.
 # When using 'file:' in 'uri' the path must include an additional '/' if running in Windows.
   cloud:
     config:
